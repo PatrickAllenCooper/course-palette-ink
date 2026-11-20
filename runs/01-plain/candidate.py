@@ -1,0 +1,47 @@
+def ink(background, preferred, allowed):
+    def rgb(color):
+        return tuple(int(color[i:i + 2], 16) for i in (1, 3, 5))
+
+    def luminance(channels):
+        linear = []
+        for byte in channels:
+            value = byte / 255.0
+            linear.append(
+                value / 12.92
+                if value <= 0.04045
+                else ((value + 0.055) / 1.055) ** 2.4
+            )
+        return (
+            0.2126 * linear[0]
+            + 0.7152 * linear[1]
+            + 0.0722 * linear[2]
+        )
+
+    background_luminance = luminance(rgb(background))
+    preferred_rgb = rgb(preferred)
+    best = None
+    best_distance = float("inf")
+
+    for candidate in allowed:
+        channels = rgb(candidate)
+        candidate_luminance = luminance(channels)
+        contrast = (
+            max(background_luminance, candidate_luminance) + 0.05
+        ) / (
+            min(background_luminance, candidate_luminance) + 0.05
+        )
+        if contrast < 4.5:
+            continue
+
+        if candidate == preferred:
+            return preferred
+
+        distance = sum(
+            (actual - desired) ** 2
+            for actual, desired in zip(channels, preferred_rgb)
+        )
+        if distance < best_distance:
+            best = candidate
+            best_distance = distance
+
+    return best

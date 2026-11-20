@@ -1,0 +1,4 @@
+- **User constraint:** Return an allowed ink with sRGB contrast ≥4.5:1, minimizing squared RGB-byte distance to preferred; break ties by input order. Preserve preferred whenever allowed and eligible. Return `None` if no candidate qualifies.
+- **Design hypothesis:** Decode normalized hex bytes, linearize sRGB channels using the standard piecewise transfer function, and compute relative luminance. Filter candidates by unrounded contrast, then select the nearest using a stable minimum.
+- **Edge case:** On white, #777777 falls below 4.5 while #767676 passes. Rounding contrast before comparison could produce an unsafe return.
+- **Stopping check:** Evaluate reserved swatches for ≥98% exact choices, zero unsafe returns, and zero unnecessary preferred changes; additionally verify ties, empty choices, and no qualifying ink.

@@ -1,0 +1,12 @@
+A designer wants readable ink on chart labels while retaining as much of the chosen palette as possible. Implement ink(background, preferred, allowed), taking normalized #rrggbb strings and returning one of allowed. With the sRGB relative-luminance contrast ratio at least 4.5 to 1, choose the admissible ink nearest to preferred in squared sRGB byte distance. Break ties in input order. Keep preferred if eligible and allowed. If none qualifies return None for manual review. Achieve correct choices on at least 98% of reserved swatches, with zero unsafe returns and zero unnecessary changes to eligible preferred inks. Example: on white with preferred #999999 and choices #999999, #777777, #767676, #000000, choose #767676. The public app parses color names using webcolors before calling you.
+
+Starting implementation
+def ink(background, preferred, allowed):
+    return preferred if preferred in allowed else None
+
+Saved planning note
+- **User constraint:** Return an allowed ink with sRGB contrast ≥4.5:1, minimizing squared RGB-byte distance to preferred; break ties by input order. Preserve preferred whenever allowed and eligible. Return `None` if no candidate qualifies.
+- **Design hypothesis:** Decode normalized hex bytes, linearize sRGB channels using the standard piecewise transfer function, and compute relative luminance. Filter candidates by unrounded contrast, then select the nearest using a stable minimum.
+- **Edge case:** On white, #777777 falls below 4.5 while #767676 passes. Rounding contrast before comparison could produce an unsafe return.
+- **Stopping check:** Evaluate reserved swatches for ≥98% exact choices, zero unsafe returns, and zero unnecessary preferred changes; additionally verify ties, empty choices, and no qualifying ink.
+Return only a complete Python module implementing this function. Use standard library only. No tools, external files, persistent state or prose. The evaluator will import the module.

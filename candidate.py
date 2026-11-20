@@ -1,2 +1,45 @@
 def ink(background, preferred, allowed):
-    return preferred if preferred in allowed else None
+    """Return the nearest allowed ink with WCAG contrast of at least 4.5."""
+    def rgb(color):
+        return tuple(int(color[i:i + 2], 16) for i in (1, 3, 5))
+
+    def luminance(channels):
+        linear = []
+        for byte in channels:
+            value = byte / 255.0
+            linear.append(
+                value / 12.92
+                if value <= 0.04045
+                else ((value + 0.055) / 1.055) ** 2.4
+            )
+        return (
+            0.2126 * linear[0]
+            + 0.7152 * linear[1]
+            + 0.0722 * linear[2]
+        )
+
+    background_luminance = luminance(rgb(background))
+    preferred_rgb = rgb(preferred)
+    best = None
+    best_distance = float("inf")
+
+    for candidate in allowed:
+        candidate_rgb = rgb(candidate)
+        candidate_luminance = luminance(candidate_rgb)
+        contrast = (
+            max(background_luminance, candidate_luminance) + 0.05
+        ) / (min(background_luminance, candidate_luminance) + 0.05)
+        if contrast < 4.5:
+            continue
+
+        distance = sum(
+            (channel - target) ** 2
+            for channel, target in zip(candidate_rgb, preferred_rgb)
+        )
+        if distance < best_distance:
+            best = candidate
+            best_distance = distance
+            if distance == 0:
+                return best
+
+    return best
