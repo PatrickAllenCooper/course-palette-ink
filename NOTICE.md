@@ -1,0 +1,1 @@
+This teaching application extends webcolors 24.11.1. Unmodified upstream runtime sources and their original license are in vendor/. The distribution URL and SHA-256 are in vendor/upstream.json. The starting policy is a course integration, not a reported upstream defect.
