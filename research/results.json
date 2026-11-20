@@ -1,0 +1,234 @@
+{
+  "frozen_commit": "452a12b3c5b9f3d830e44c1b288003d134a269d7",
+  "start": "622bc26d52c68354ff6cce62e5414577a1211914",
+  "python": "3.11.15",
+  "selected": "01-assisted",
+  "baseline": {
+    "correct": 74,
+    "passed": false,
+    "reviews": 100,
+    "total": 300,
+    "unnecessary_changes": 0,
+    "unsafe": 171
+  },
+  "result": {
+    "correct": 300,
+    "passed": true,
+    "reviews": 70,
+    "total": 300,
+    "unnecessary_changes": 0,
+    "unsafe": 0
+  },
+  "trials": [
+    {
+      "run": "01-assisted",
+      "development": {
+        "correct": 75,
+        "passed": true,
+        "reviews": 18,
+        "total": 75,
+        "unnecessary_changes": 0,
+        "unsafe": 0
+      },
+      "model": "gpt-6.1-sol",
+      "backend": "Codex CLI",
+      "effort": "low",
+      "seconds": 10.16,
+      "status": "ok",
+      "usage": [
+        {
+          "input_tokens": 16046,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 348,
+          "reasoning_output_tokens": 0
+        }
+      ],
+      "cost": null,
+      "prompt_file": "prompt.txt",
+      "final": {
+        "correct": 300,
+        "passed": true,
+        "reviews": 70,
+        "total": 300,
+        "unnecessary_changes": 0,
+        "unsafe": 0
+      }
+    },
+    {
+      "run": "01-plain",
+      "development": {
+        "correct": 75,
+        "passed": true,
+        "reviews": 18,
+        "total": 75,
+        "unnecessary_changes": 0,
+        "unsafe": 0
+      },
+      "model": "gpt-6.1-sol",
+      "backend": "Codex CLI",
+      "effort": "low",
+      "seconds": 11.24,
+      "status": "ok",
+      "usage": [
+        {
+          "input_tokens": 15873,
+          "cached_input_tokens": 14208,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 392,
+          "reasoning_output_tokens": 60
+        }
+      ],
+      "cost": null,
+      "prompt_file": "prompt.txt",
+      "final": {
+        "correct": 300,
+        "passed": true,
+        "reviews": 70,
+        "total": 300,
+        "unnecessary_changes": 0,
+        "unsafe": 0
+      }
+    },
+    {
+      "run": "02-assisted",
+      "development": {
+        "correct": 75,
+        "passed": true,
+        "reviews": 18,
+        "total": 75,
+        "unnecessary_changes": 0,
+        "unsafe": 0
+      },
+      "model": "gpt-6.1-sol",
+      "backend": "Codex CLI",
+      "effort": "low",
+      "seconds": 10.33,
+      "status": "ok",
+      "usage": [
+        {
+          "input_tokens": 16044,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 371,
+          "reasoning_output_tokens": 0
+        }
+      ],
+      "cost": null,
+      "prompt_file": "prompt.txt",
+      "final": {
+        "correct": 300,
+        "passed": true,
+        "reviews": 70,
+        "total": 300,
+        "unnecessary_changes": 0,
+        "unsafe": 0
+      }
+    },
+    {
+      "run": "02-plain",
+      "development": {
+        "correct": 75,
+        "passed": true,
+        "reviews": 18,
+        "total": 75,
+        "unnecessary_changes": 0,
+        "unsafe": 0
+      },
+      "model": "gpt-6.1-sol",
+      "backend": "Codex CLI",
+      "effort": "low",
+      "seconds": 10.11,
+      "status": "ok",
+      "usage": [
+        {
+          "input_tokens": 13693,
+          "cached_input_tokens": 4736,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 342,
+          "reasoning_output_tokens": 0
+        }
+      ],
+      "cost": null,
+      "prompt_file": "prompt.txt",
+      "final": {
+        "correct": 300,
+        "passed": true,
+        "reviews": 70,
+        "total": 300,
+        "unnecessary_changes": 0,
+        "unsafe": 0
+      }
+    },
+    {
+      "run": "03-assisted",
+      "development": {
+        "correct": 75,
+        "passed": true,
+        "reviews": 18,
+        "total": 75,
+        "unnecessary_changes": 0,
+        "unsafe": 0
+      },
+      "model": "gpt-6.1-sol",
+      "backend": "Codex CLI",
+      "effort": "low",
+      "seconds": 11.68,
+      "status": "ok",
+      "usage": [
+        {
+          "input_tokens": 16046,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 369,
+          "reasoning_output_tokens": 0
+        }
+      ],
+      "cost": null,
+      "prompt_file": "prompt.txt",
+      "final": {
+        "correct": 300,
+        "passed": true,
+        "reviews": 70,
+        "total": 300,
+        "unnecessary_changes": 0,
+        "unsafe": 0
+      }
+    },
+    {
+      "run": "03-plain",
+      "development": {
+        "correct": 75,
+        "passed": true,
+        "reviews": 18,
+        "total": 75,
+        "unnecessary_changes": 0,
+        "unsafe": 0
+      },
+      "model": "gpt-6.1-sol",
+      "backend": "Codex CLI",
+      "effort": "low",
+      "seconds": 12.31,
+      "status": "ok",
+      "usage": [
+        {
+          "input_tokens": 15875,
+          "cached_input_tokens": 14208,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 373,
+          "reasoning_output_tokens": 45
+        }
+      ],
+      "cost": null,
+      "prompt_file": "prompt.txt",
+      "final": {
+        "correct": 300,
+        "passed": true,
+        "reviews": 70,
+        "total": 300,
+        "unnecessary_changes": 0,
+        "unsafe": 0
+      }
+    }
+  ]
+}
